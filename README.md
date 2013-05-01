@@ -33,6 +33,10 @@ Build some Java program using this compiler. Be sure that the `java` command is 
 
 Compatible with build frameworks like Ant and Maven. Just set the compiler executable to the custom `javac` script in its settings files (like `build.xml` or `pom.xml`). If the `JAVA_HOME` environment variable is needed, point it to a standard OpenJDK 6 directory.
 
+Expected results
+--------------------------------------------
+For each *javac* call there must be a `metrics_output.txt` file generated with some declaration list collected from your built software. This file will usually be placed in the root directory of its source.
+
 If just one output file was generated, just copy it to a file named `all_metrics_output.txt`. If multiple files from multiple modules were generated, merge them to an unique file. I do this with a *bash* command:
 
 ```bash
@@ -40,10 +44,6 @@ cat $(find . | grep "/metrics_output.txt") | sort -u > all_metrics_output.txt
 ```
 
 Then run the `metrics_calculator.py` script to calculate the metrics (Python 2.6 or later needed). Go to the directory containing the `all_metrics_output.txt` file and run the script. It will generate a `metrics.txt` output file.
-
-Expected results
---------------------------------------------
-For each *javac* call there must be a `metrics_output.txt` file generated with some declaration list collected from your built software. This file will usually be placed in the root directory of its source.
 
 
 Original README

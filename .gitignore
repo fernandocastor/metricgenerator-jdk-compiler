@@ -1,0 +1,5 @@
+*.class
+*metrics*.txt
+bin/
+build/
+dist/

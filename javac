@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mydir=`dirname $0`
+case `uname -s` in
+    CYGWIN*)
+      mydir=`cygpath -m $mydir`
+      ;;
+esac
+
+java -classpath $mydir/build/classes/ com.sun.tools.javac.Main ${@}
